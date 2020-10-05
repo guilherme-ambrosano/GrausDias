@@ -6,6 +6,11 @@ import numpy as np
 import datetime
 import calendar
 from geopy.geocoders import Nominatim
+import os
+
+
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 class semLocal(Exception):
     pass
@@ -30,7 +35,7 @@ class semCalculo(Exception):
 
 class planilha:
     def __init__(self):
-        self.frutiferas = pd.read_csv("frutiferas.csv")
+        self.frutiferas = pd.read_csv(os.path.join(__location__, "frutiferas.csv"))
         self.local = None
         self.data = None
         self.dias = None

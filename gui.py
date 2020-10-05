@@ -12,6 +12,10 @@ from classe_planilha import *
 import grafico
 from PIL import ImageTk, Image
 
+
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
 plan = planilha()
 top = tkinter.Tk()
 top.geometry("500x400")
@@ -21,7 +25,7 @@ main = Frame(top, pady = 15, padx = 15)
 main.pack(expand = True, fill = "both")
 
 if not os.path.isfile("ciclos.csv"):
-    with open("ciclos.csv", "w+") as f:
+    with open(os.path.join(__location__, "ciclos.csv"), "w+") as f:
         f.write("Cultura,Local,Latitude,Longitude,Data do início do período,Temperatura média,Número de dias no período\n")
 
 semeadura = True
