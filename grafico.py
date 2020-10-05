@@ -149,5 +149,5 @@ def fazer_grafico(teste):
 
     plt.xticks(breaks_eixo, df.dias[breaks_eixo].tolist())
     ax.set_xlabel("")
-    fig.tight_layout(rect = [0, 0.2, 1, 0.95])
+    fig.tight_layout()
     fig.savefig("grafico.png")
